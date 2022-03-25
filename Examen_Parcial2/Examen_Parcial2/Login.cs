@@ -40,7 +40,7 @@ namespace Examen_Parcial2
 
             if(usuarios == null)
             {
-                MessageBox.Show("Error en Usuario/Contraseña");
+                MessageBox.Show("Usuario/Contraseña incorrecto");
             }    
         }
     }

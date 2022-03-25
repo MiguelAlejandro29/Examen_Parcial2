@@ -40,8 +40,12 @@ namespace DatosMysql.Accesos
                     user.Clave = reader[1].ToString();
                     user.Nombre = reader[2].ToString();
                 }
+                reader.Close();
+                conn.Close();
 
             }
+             
+
             catch (Exception ex)
             {
 
