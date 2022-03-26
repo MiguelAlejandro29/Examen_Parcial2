@@ -77,6 +77,7 @@
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(194, 23);
             this.txtusuario.TabIndex = 3;
+            this.txtusuario.Text = "mcardenas";
             // 
             // txtContraseña
             // 
@@ -84,8 +85,10 @@
             this.txtContraseña.Location = new System.Drawing.Point(105, 94);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
             this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.PasswordChar = '*';
             this.txtContraseña.Size = new System.Drawing.Size(194, 23);
             this.txtContraseña.TabIndex = 4;
+            this.txtContraseña.Text = "123456";
             // 
             // bntlogin
             // 
@@ -109,6 +112,7 @@
             // 
             // Login
             // 
+            this.AcceptButton = this.bntlogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;

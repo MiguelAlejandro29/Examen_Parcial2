@@ -41,7 +41,12 @@ namespace Examen_Parcial2
             if(usuarios == null)
             {
                 MessageBox.Show("Usuario/Contraseña incorrecto");
-            }    
+                return;
+            }   
+            
+            FrmMenu frmMenu = new FrmMenu();    
+            frmMenu.ShowDialog();
+            this.Hide();
         }
     }
 }

@@ -84,7 +84,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accesos\BAProdcutos.cs" />
     <Compile Include="Accesos\BaseDatos.cs" />
+    <Compile Include="Accesos\PedidosBD.cs" />
+    <Compile Include="Entidades\Pedidos.cs" />
+    <Compile Include="Entidades\Productos.cs" />
     <Compile Include="Entidades\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

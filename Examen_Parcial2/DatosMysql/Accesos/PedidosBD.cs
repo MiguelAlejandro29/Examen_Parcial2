@@ -9,85 +9,89 @@ using System.Threading.Tasks;
 
 namespace DatosMysql.Accesos
 {
-    public class BAProdcutos
+    public class PedidosBD
     {
-
         readonly string cadena = "Server=127.0.0.1; Port=3306; Database=examen2; Uid=root; Pwd=queremosla12;";
 
         MySqlConnection conn;
         MySqlCommand cmd;
 
-        public DataTable ListarProductos()
+        public DataTable ListaPedido()
         {
-            DataTable listaproducto = new DataTable();
+            DataTable listapedido = new DataTable();
 
             try
             {
-                string sql = "SELECT * FROM productos;"; 
-                conn = new MySqlConnection(cadena); 
+                string sql = "SELECT * FROM pedidos;";
+                conn = new MySqlConnection(cadena);
                 conn.Open();
 
                 cmd = new MySqlCommand(sql, conn);
 
                 MySqlDataReader reader = cmd.ExecuteReader();
-                listaproducto.Load(reader);
+                listapedido.Load(reader);
                 reader.Close();
                 conn.Close();
 
-             
+
             }
             catch (Exception ex)
             {
-  
+
             }
-            return listaproducto;
+            return listapedido;
 
         }
-
-        public bool AgregarProducto(Productos producto)
+        
+        
+        public bool InsertarPedido(Pedidos pedido)
         {
-            bool agregar = false;
+            bool inserto = false;
 
             try
             {
-                string sql = "INSERT INTO productos VALUES (@Codigo, @Descripcion, @Precio);";
+                string sql = "INSERT INTO pedidos VALUES(@Id, @Nombre_Cliente, @Producto,@Precio, @Cantidad );";
 
                 conn = new MySqlConnection(cadena);
                 conn.Open();
 
                 cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Codigo", producto.CodigoP);
-                cmd.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
-                cmd.Parameters.AddWithValue("@Precio", producto.Precio);
+                cmd.Parameters.AddWithValue("@Id", pedido.Id);
+                cmd.Parameters.AddWithValue("@Nombre_Cliente", pedido.Nombre_Cliente);
+                cmd.Parameters.AddWithValue("@Producto", pedido.Producto);
+                cmd.Parameters.AddWithValue("@Precio", pedido.Precio);
+                cmd.Parameters.AddWithValue("@Cantidad", pedido.Cantidad);
 
                 cmd.ExecuteNonQuery();
-                agregar = true; 
+                inserto = true;
                 conn.Close();
-
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-            }
-            return agregar;
 
+                
+            }
+            return inserto;
 
         }
 
-        public bool ModificarProducto(Productos producto)
+        public bool ModificarPedido(Pedidos pedido)
         {
             bool modificar = false;
 
             try
             {
-                string sql = "UPDATE productos SET = CodigoP =@CodigoP, Descripcion= @Descripcion, Precio = @Precio, WHERE CodigoP = @CodigoP);";
+                string sql = "UPDATE pedidos SET Nombre_Cliente = @Nombre_Cliente, Producto = @Producto, Precio = @Precio, Cantidad = @Cantidad WHERE Nombre_Cliente = @Nombre_Cliente ;";
 
                 conn = new MySqlConnection(cadena);
                 conn.Open();
 
                 cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@CodigoP", producto.CodigoP);
-                cmd.Parameters.AddWithValue("@Descripcion", producto.Descripcion);
-                cmd.Parameters.AddWithValue("@Precio", producto.Precio);
+                //cmd.Parameters.AddWithValue("@Id", pedido.Id);
+                cmd.Parameters.AddWithValue("@Nombre_Cliente", pedido.Nombre_Cliente);
+                cmd.Parameters.AddWithValue("@Producto", pedido.Producto);
+                cmd.Parameters.AddWithValue("@Precio", pedido.Precio);
+                cmd.Parameters.AddWithValue("@Cantidad", pedido.Cantidad);
 
                 cmd.ExecuteNonQuery();
                 modificar = true;
@@ -102,20 +106,21 @@ namespace DatosMysql.Accesos
 
         }
 
-        public bool EliminarProducto(string codigoP)
+        public bool EliminarPedido(string codigo)
         {
             bool eliminar = false;
 
             try
             {
-                string sql = "DELETE FROM productos WHERE CodigoP = @CodigoP;";
+                string sql = "DELETE FROM pedidos WHERE Nombre_Cliente = @Nombre_Cliente;";
 
                 conn = new MySqlConnection(cadena);
                 conn.Open();
 
                 cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@CodigoP", codigoP);
- 
+
+                cmd.Parameters.AddWithValue("@Nombre_Cliente", codigo);
+
 
                 cmd.ExecuteNonQuery();
                 eliminar = true;

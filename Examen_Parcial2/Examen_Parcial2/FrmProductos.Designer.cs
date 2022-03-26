@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,12 +39,17 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.bntGuardar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 29);
+            this.label1.Location = new System.Drawing.Point(13, 48);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 16);
@@ -53,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 56);
+            this.label2.Location = new System.Drawing.Point(13, 75);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 16);
@@ -63,7 +69,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 87);
+            this.label3.Location = new System.Drawing.Point(13, 106);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 16);
@@ -79,30 +85,34 @@
             this.bntagregar.TabIndex = 4;
             this.bntagregar.Text = "Agregar";
             this.bntagregar.UseVisualStyleBackColor = true;
+            this.bntagregar.Click += new System.EventHandler(this.bntagregar_Click);
             // 
             // bntCambiar
             // 
-            this.bntCambiar.Location = new System.Drawing.Point(279, 80);
+            this.bntCambiar.Location = new System.Drawing.Point(280, 111);
             this.bntCambiar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bntCambiar.Name = "bntCambiar";
             this.bntCambiar.Size = new System.Drawing.Size(100, 28);
             this.bntCambiar.TabIndex = 5;
             this.bntCambiar.Text = "Modificar";
             this.bntCambiar.UseVisualStyleBackColor = true;
+            this.bntCambiar.Click += new System.EventHandler(this.bntCambiar_Click);
             // 
             // bntborrar
             // 
-            this.bntborrar.Location = new System.Drawing.Point(279, 44);
+            this.bntborrar.Location = new System.Drawing.Point(280, 75);
             this.bntborrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bntborrar.Name = "bntborrar";
             this.bntborrar.Size = new System.Drawing.Size(100, 28);
             this.bntborrar.TabIndex = 6;
             this.bntborrar.Text = "Borrar";
             this.bntborrar.UseVisualStyleBackColor = true;
+            this.bntborrar.Click += new System.EventHandler(this.bntborrar_Click);
             // 
             // bntCancelar
             // 
-            this.bntCancelar.Location = new System.Drawing.Point(279, 116);
+            this.bntCancelar.Enabled = false;
+            this.bntCancelar.Location = new System.Drawing.Point(280, 147);
             this.bntCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bntCancelar.Name = "bntCancelar";
             this.bntCancelar.Size = new System.Drawing.Size(100, 28);
@@ -112,7 +122,8 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(97, 25);
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Location = new System.Drawing.Point(98, 44);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(170, 22);
@@ -120,7 +131,8 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(97, 87);
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.Location = new System.Drawing.Point(98, 106);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(170, 22);
@@ -128,17 +140,44 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(97, 57);
+            this.txtDescripcion.Enabled = false;
+            this.txtDescripcion.Location = new System.Drawing.Point(98, 76);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(170, 22);
             this.txtDescripcion.TabIndex = 11;
             // 
+            // bntGuardar
+            // 
+            this.bntGuardar.Enabled = false;
+            this.bntGuardar.Location = new System.Drawing.Point(280, 42);
+            this.bntGuardar.Margin = new System.Windows.Forms.Padding(4);
+            this.bntGuardar.Name = "bntGuardar";
+            this.bntGuardar.Size = new System.Drawing.Size(100, 28);
+            this.bntGuardar.TabIndex = 12;
+            this.bntGuardar.Text = "Guardar";
+            this.bntGuardar.UseVisualStyleBackColor = true;
+            this.bntGuardar.Click += new System.EventHandler(this.bntGuardar_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(16, 183);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(354, 150);
+            this.dataGridView1.TabIndex = 13;
+            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(393, 172);
+            this.ClientSize = new System.Drawing.Size(392, 342);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.bntGuardar);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.txtCodigo);
@@ -153,6 +192,9 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmProductos";
             this.Text = "FrmProductos";
+            this.Load += new System.EventHandler(this.FrmProductos_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +212,8 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Button bntGuardar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
